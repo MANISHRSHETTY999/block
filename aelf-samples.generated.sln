@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "todo", "todo", "{A68CD695-C60E-4D79-B407-85BB5CC34A54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-smart-contract", "1-smart-contract", "{A26FCAB3-96FF-4F53-994D-636FEAF91EC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Tests", "todo\1-smart-contract\test\ToDo.Tests.csproj", "{DDF6FD27-12B0-4BDD-AFC6-744A35C4BBDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo", "todo\1-smart-contract\src\ToDo.csproj", "{1895CC9C-4430-447C-9064-AAB3B414F273}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDF6FD27-12B0-4BDD-AFC6-744A35C4BBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF6FD27-12B0-4BDD-AFC6-744A35C4BBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF6FD27-12B0-4BDD-AFC6-744A35C4BBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF6FD27-12B0-4BDD-AFC6-744A35C4BBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1895CC9C-4430-447C-9064-AAB3B414F273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1895CC9C-4430-447C-9064-AAB3B414F273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1895CC9C-4430-447C-9064-AAB3B414F273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1895CC9C-4430-447C-9064-AAB3B414F273}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A26FCAB3-96FF-4F53-994D-636FEAF91EC8} = {A68CD695-C60E-4D79-B407-85BB5CC34A54}
+		{DDF6FD27-12B0-4BDD-AFC6-744A35C4BBDB} = {A26FCAB3-96FF-4F53-994D-636FEAF91EC8}
+		{1895CC9C-4430-447C-9064-AAB3B414F273} = {A26FCAB3-96FF-4F53-994D-636FEAF91EC8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFEB7EF9-5FC3-44DE-B047-282A0F509F69}
+	EndGlobalSection
+EndGlobal
