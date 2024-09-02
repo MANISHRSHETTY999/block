@@ -1,0 +1,12 @@
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/bin/Debug/net6.0/TikTakToe.deps.json
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/bin/Debug/net6.0/TikTakToe.dll
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/bin/Debug/net6.0/TikTakToe.pdb
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.csproj.AssemblyReference.cache
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.AssemblyInfoInputs.cache
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.AssemblyInfo.cs
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.csproj.CoreCompileInputs.cache
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.dll
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/refint/TikTakToe.dll
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/TikTakToe.pdb
+/workspaces/aelf-devcontainer-template/tik_tak_toe/src/obj/Debug/net6.0/ref/TikTakToe.dll
