@@ -49,23 +49,8 @@ const Header = ({
     }
   };
 
-  const connect = async (walletProvider?: IPortkeyProvider) => {
-    // Step C - Connect Portkey Wallet
-    const accounts = await (walletProvider
-      ? walletProvider
-      : provider
-    )?.request({
-      method: MethodsBase.REQUEST_ACCOUNTS,
-    });
-    const account = accounts?.tDVW && accounts?.tDVW[0];
-    if (account) {
-      setCurrentWalletAddress(
-        account.replace(/^ELF_/, "").replace(/_tDVW$/, "")
-      );
-      setIsConnected(true);
-    }
-    !walletProvider && toast.success("Successfully connected");
-  };
+  // Step C - Connect Portkey Wallet
+  const connect = async (walletProvider?: IPortkeyProvider) => {};
 
   useEffect(() => {
     if (!provider) init();

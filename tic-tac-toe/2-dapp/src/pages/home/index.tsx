@@ -27,7 +27,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
   // step 1 - Check If Contract is Initialized or not 
   const checkIsContractInitialized = async () => {};
 
-  // step 2 - Intitialize The Contract Very First Time
+  // step 2 - Initialize the smart contract
   const initializeContract = async () => {};
 
   const changeTurn = () => {
@@ -52,7 +52,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
   // step 4 - Fetch Latest Board Data from Contract 
   const getLatestBoard = async () => {};
 
-  // step 5 - Initial Start Game Function
+  // step 5 - Start Game function
   const startGame = async () => {};
 
   // step 6 - Perform the Make Move Function 
@@ -113,6 +113,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
               <h2>Congratulation Winner!</h2>
               <Button
                 onClick={() => {
+                  // set States in intitial value
                   setWinner(null);
                   setIsStarted(false);
                   setBoard(Array(9).fill(null));

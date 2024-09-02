@@ -17,6 +17,7 @@ export const CustomToast = ({ title, message }: any) => (
   </div>
 );
 
+// Get Index for the Board from 0 to 8 using x and y
 export const getIndexFromPosition = (x: number, y: number) => {
   if (x === 0 && y === 0) {
     return 0;
