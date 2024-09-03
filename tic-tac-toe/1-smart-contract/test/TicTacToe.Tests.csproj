@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>AElf.Contracts.TikTakToe</RootNamespace>
+        <RootNamespace>AElf.Contracts.TicTacToe</RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -45,7 +45,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../src/TikTakToe.csproj" />
+        <ProjectReference Include="../src/TicTacToe.csproj" />
     </ItemGroup>
     
 </Project>

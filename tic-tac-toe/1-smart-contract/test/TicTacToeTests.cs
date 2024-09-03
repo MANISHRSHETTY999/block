@@ -3,10 +3,10 @@ using Google.Protobuf.WellKnownTypes;
 using Shouldly;
 using Xunit;
 
-namespace AElf.Contracts.TikTakToe
+namespace AElf.Contracts.TicTacToe
 {
     // This class is unit test class, and it inherit TestBase. Write your unit test code inside it
-    public class TikTakToeTests : TestBase
+    public class TicTacToeTests : TestBase
     {
         [Fact]
         public async Task Update_ShouldUpdateMessageAndFireEvent()
@@ -16,10 +16,10 @@ namespace AElf.Contracts.TikTakToe
             var input = new StringValue { Value = inputValue };
 
             // Act
-            await TikTakToeStub.Update.SendAsync(input);
+            await TicTacToeStub.Update.SendAsync(input);
 
             // Assert
-            var updatedMessage = await TikTakToeStub.Read.CallAsync(new Empty());
+            var updatedMessage = await TicTacToeStub.Read.CallAsync(new Empty());
             updatedMessage.Value.ShouldBe(inputValue);
         }
     }

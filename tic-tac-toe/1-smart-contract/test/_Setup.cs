@@ -1,10 +1,10 @@
 ﻿using AElf.Cryptography.ECDSA;
 using AElf.Testing.TestBase;
 
-namespace AElf.Contracts.TikTakToe
+namespace AElf.Contracts.TicTacToe
 {
     // The Module class load the context required for unit testing
-    public class Module : ContractTestModule<TikTakToe>
+    public class Module : ContractTestModule<TicTacToe>
     {
         
     }
@@ -13,18 +13,18 @@ namespace AElf.Contracts.TikTakToe
     public class TestBase : ContractTestBase<Module>
     {
         // The Stub class for unit testing
-        internal readonly TikTakToeContainer.TikTakToeStub TikTakToeStub;
+        internal readonly TicTacToeContainer.TicTacToeStub TicTacToeStub;
         // A key pair that can be used to interact with the contract instance
         private ECKeyPair DefaultKeyPair => Accounts[0].KeyPair;
 
         public TestBase()
         {
-            TikTakToeStub = GetTikTakToeContractStub(DefaultKeyPair);
+            TicTacToeStub = GetTicTacToeContractStub(DefaultKeyPair);
         }
 
-        private TikTakToeContainer.TikTakToeStub GetTikTakToeContractStub(ECKeyPair senderKeyPair)
+        private TicTacToeContainer.TicTacToeStub GetTicTacToeContractStub(ECKeyPair senderKeyPair)
         {
-            return GetTester<TikTakToeContainer.TikTakToeStub>(ContractAddress, senderKeyPair);
+            return GetTester<TicTacToeContainer.TicTacToeStub>(ContractAddress, senderKeyPair);
         }
     }
     

@@ -1,10 +1,10 @@
 using Google.Protobuf.WellKnownTypes;
 using System.Collections.Generic;
 
-namespace AElf.Contracts.TikTacToe
+namespace AElf.Contracts.TicTacToe
 {
     // Contract class must inherit the base class generated from the proto file
-    public class TikTacToe : TikTacToeContainer.TikTacToeBase
+    public class TicTacToe : TicTacToeContainer.TicTacToeBase
     {
      private const int BoardSize = 3;
 

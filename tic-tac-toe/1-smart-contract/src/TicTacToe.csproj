@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>AElf.Contracts.TikTakToe</RootNamespace>
+        <RootNamespace>AElf.Contracts.TicTacToe</RootNamespace>
         <IsContract>true</IsContract>
         <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     </PropertyGroup>

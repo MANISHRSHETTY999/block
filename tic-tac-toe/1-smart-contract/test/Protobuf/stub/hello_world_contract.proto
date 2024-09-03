@@ -5,11 +5,11 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "Protobuf/reference/acs12.proto";
 // The namespace of this class
-option csharp_namespace = "AElf.Contracts.TikTakToe";
+option csharp_namespace = "AElf.Contracts.TicTacToe";
 
-service TikTakToe {
+service TicTacToe {
   // The name of the state class the smart contract is going to use to access blockchain state
-  option (aelf.csharp_state) = "AElf.Contracts.TikTakToe.TikTakToeState";
+  option (aelf.csharp_state) = "AElf.Contracts.TicTacToe.TicTacToeState";
   option (aelf.base) = "Protobuf/reference/acs12.proto";
 
   // Actions (methods that modify contract state)

@@ -1,10 +1,10 @@
 using AElf.Sdk.CSharp.State;
 using AElf.Types;
 
-namespace AElf.Contracts.TikTacToe
+namespace AElf.Contracts.TicTacToe
 {
     // The state class is access the blockchain state
-    public partial class TikTacToeState : ContractState 
+    public partial class TicTacToeState : ContractState 
     {
         // A state to check if contract is initialized
         public BoolState Initialized { get; set; }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "aelf/core.proto";
 
-option csharp_namespace = "AElf.Contracts.TikTakToe";
+option csharp_namespace = "AElf.Contracts.TicTacToe";
 
 message AuthorityInfo {
   aelf.Address contract_address = 1;
