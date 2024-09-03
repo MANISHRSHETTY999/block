@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "aelf/options.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "Protobuf/reference/acs12.proto";
+// The namespace of this class
+option csharp_namespace = "AElf.Contracts.ExpenseTracker";
+
+service ExpenseTracker {
+  // The name of the state class the smart contract is going to use to access blockchain state
+  option (aelf.csharp_state) = "AElf.Contracts.ExpenseTracker.ExpenseTrackerState";
+  option (aelf.base) = "Protobuf/reference/acs12.proto";
+  rpc Initialize (google.protobuf.Empty) returns (google.protobuf.Empty) {
+  }
+    
+  rpc InitializeExpense(InitializeExpenseInput) returns (google.protobuf.Empty){
+  }
+  
+  rpc ModifyExpense(ModifyExpenseInput) returns (google.protobuf.Empty){
+  }
+  
+  rpc DeleteExpense(DeleteExpenseInput) returns (google.protobuf.Empty){
+  }
+
+}
+
+// An event that will be emitted from contract method call
+message InitializeExpenseInput {
+    int64 id = 1;
+    string merchant_name = 2;
+    int64 amount = 3;
+}
+
+message ModifyExpenseInput {
+    int64 id = 1;
+    string merchant_name = 2;
+    int64 amount = 3;
+}
+
+message DeleteExpenseInput {
+    int64 id = 1;
+}
