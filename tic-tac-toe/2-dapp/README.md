@@ -1,8 +1,8 @@
-# Build a Tic-Tac-Teo dApp (Frontend) 
+# Build a Tic-Tac-Toe dApp (Frontend) 
 
 ## Getting Started
 
-Frontend of our [Tic-Tac-Teo dApp](https://learn.aelf.dev/docs/tutorial/stackup/frontend/).
+Frontend of our [Tic-Tac-Toe dApp](https://learn.aelf.dev/docs/tutorial/stackup/frontend/).
 
 ## Pre-requisites
 
@@ -20,7 +20,7 @@ git clone https://github.com/AElfProject/aelf-samples.git
 
 2. Navigate to the project directory:
 ```bash
-cd aelf-samples/tic-tac-teo/2-dapp
+cd aelf-samples/tic-tac-toe/2-dapp
 ```
 
 3. Install the necessary dependencies & libraries
@@ -30,7 +30,7 @@ npm install
 
 Now that you're set up, you're ready to start the quest! Follow the steps as outlined in the campaign. Each step contains detailed instructions to guide you through the process
 
-## Preview of Tic-Tac-Teo dApp
+## Preview of Tic-Tac-Toe dApp
 
-![image](assets/Developer_TicTacTeo_Landing_Page.png)
+![image](assets/Developer_TicTacToe_Landing_Page.png)
 
