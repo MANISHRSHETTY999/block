@@ -1,78 +1,117 @@
-using AElf.Sdk.CSharp;
 using Google.Protobuf.WellKnownTypes;
-using AElf.Types;
 using System.Collections.Generic;
 
 namespace AElf.Contracts.ExpenseTracker
 {
-    public class ExpenseTrackerContract : ExpenseTrackerContractContainer.ExpenseTrackerContractBase
+    public class ExpenseTracker : ExpenseTrackerContainer.ExpenseTrackerBase
     {
-        // Initialize a new expense entry
-        public override Empty InitializeExpense(InitializeExpenseInput input)
+        public override Empty Initialize(Empty input)
         {
-            Assert(!State.Expenses[input.Id].Initialized, "Expense already exists.");
-
-            var expense = new Expense
+            if (State.Initialized.Value)
             {
-                Id = input.Id,
-                MerchantName = input.MerchantName,
-                Amount = input.Amount,
-                Owner = Context.Sender
+                return new Empty();
+            }
+            State.Initialized.Value = true;
+            State.Owner.Value = Context.Sender;
+            State.ExpenseIds.Value = "";
+            State.ExpenseCounter.Value = 0;
+            return new Empty();
+        }
+
+        public override StringValue AddExpense(ExpenseInput input)
+        {
+            if (!State.Initialized.Value)
+            {
+                return new StringValue { Value = "Contract not initialized." };
+            }
+            var expenseId = (State.ExpenseCounter.Value + 1).ToString();
+            State.ExpenseCounter.Value++;
+            var timestamp = Context.CurrentBlockTime.Seconds;
+            State.Expenses[expenseId] = new Expense
+            {
+                ExpenseId = expenseId,
+                Description = input.Description,
+                Category = input.Category,
+                Amount = input.Amount, // Now using int64 for amount
+                Currency = input.Currency,
+                CreatedAt = timestamp,
+                UpdatedAt = timestamp,
+                Owner = Context.Sender.ToString().Trim('"'),
             };
+            State.ExpenseExistence[expenseId] = true;
 
-            State.Expenses[input.Id] = expense;
-            return new Empty();
+            var existingExpenseIds = State.ExpenseIds.Value;
+            existingExpenseIds += string.IsNullOrEmpty(existingExpenseIds) ? expenseId : $",{expenseId}";
+            State.ExpenseIds.Value = existingExpenseIds;
+
+            return new StringValue { Value = expenseId };
         }
 
-        // Modify an existing expense entry
-        public override Empty ModifyExpense(ModifyExpenseInput input)
+        public override Empty UpdateExpense(ExpenseUpdateInput input)
         {
-            var expense = State.Expenses[input.Id];
-            Assert(expense != null && expense.Owner == Context.Sender, "Expense not found or access denied.");
+            var expense = State.Expenses[input.ExpenseId];
+            if (expense == null)
+            {
+                return new Empty(); // Handle case if expense doesn't exist
+            }
+            expense.Description = input.Description ?? expense.Description;
+            expense.Category = input.Category ?? expense.Category;
+            expense.Amount = input.Amount != 0 ? input.Amount : expense.Amount; // Now using int64 for amount
+            expense.Currency = input.Currency ?? expense.Currency;
+            expense.UpdatedAt = Context.CurrentBlockTime.Seconds;
 
-            expense.MerchantName = input.MerchantName;
-            expense.Amount = input.Amount;
-
-            State.Expenses[input.Id] = expense;
+            State.Expenses[input.ExpenseId] = expense;
             return new Empty();
         }
 
-        // Delete an existing expense entry
-        public override Empty DeleteExpense(DeleteExpenseInput input)
+        public override Empty DeleteExpense(StringValue input)
         {
-            var expense = State.Expenses[input.Id];
-            Assert(expense != null && expense.Owner == Context.Sender, "Expense not found or access denied.");
+            State.Expenses.Remove(input.Value);
+            State.ExpenseExistence.Remove(input.Value);
 
-            State.Expenses.Remove(input.Id);
+            var existingExpenseIds = State.ExpenseIds.Value.Split(',');
+            var newExpenseIds = new List<string>(existingExpenseIds.Length);
+            foreach (var expenseId in existingExpenseIds)
+            {
+                if (expenseId != input.Value)
+                {
+                    newExpenseIds.Add(expenseId);
+                }
+            }
+            State.ExpenseIds.Value = string.Join(",", newExpenseIds);
+
             return new Empty();
         }
-    }
 
-    public class InitializeExpenseInput
-    {
-        public long Id { get; set; }
-        public string MerchantName { get; set; }
-        public long Amount { get; set; }
-    }
+        public override ExpenseList ListExpenses(StringValue input)
+        {
+            var owner = input.Value; // Get the owner value from the input
+            var expenseList = new ExpenseList();
+            var expenseIds = State.ExpenseIds.Value.Split(',');
+            foreach (var expenseId in expenseIds)
+            {
+                var expense = State.Expenses[expenseId];
+                if (expense != null && expense.Owner == owner) // Filter expenses by owner
+                {
+                    expenseList.Expenses.Add(expense);
+                }
+            }
+            return expenseList;
+        }
 
-    public class ModifyExpenseInput
-    {
-        public long Id { get; set; }
-        public string MerchantName { get; set; }
-        public long Amount { get; set; }
-    }
+        public override Expense GetExpense(StringValue input)
+        {
+            var expense = State.Expenses[input.Value];
+            if (expense == null)
+            {
+                return new Expense { ExpenseId = input.Value, Description = "Expense not found." };
+            }
+            return expense;
+        }
 
-    public class DeleteExpenseInput
-    {
-        public long Id { get; set; }
-    }
-
-    public class Expense
-    {
-        public long Id { get; set; }
-        public Address Owner { get; set; }
-        public string MerchantName { get; set; }
-        public long Amount { get; set; }
-        public bool Initialized { get; set; } = true;
+        public override BoolValue GetInitialStatus(Empty input)
+        {
+            return new BoolValue { Value = State.Initialized.Value };
+        }
     }
 }

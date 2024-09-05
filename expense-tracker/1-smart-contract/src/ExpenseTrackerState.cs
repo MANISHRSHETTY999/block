@@ -3,17 +3,13 @@ using AElf.Types;
 
 namespace AElf.Contracts.ExpenseTracker
 {
-    public partial class ExpenseTrackerContractState : ContractState
+    public class ExpenseTrackerState : ContractState
     {
-        public MappedState<long, Expense> Expenses { get; set; }
-    }
-
-    public class Expense
-    {
-        public long Id { get; set; }
-        public Address Owner { get; set; }
-        public string MerchantName { get; set; }
-        public long Amount { get; set; }
-        public bool Initialized { get; set; } = true;
+        public BoolState Initialized { get; set; }
+        public SingletonState<Address> Owner { get; set; }
+        public MappedState<string, Expense> Expenses { get; set; } // Mapping of expense ID to Expense
+        public MappedState<string, bool> ExpenseExistence { get; set; } // Mapping to track expense existence
+        public StringState ExpenseIds { get; set; } // Concatenated string of expense IDs
+        public Int32State ExpenseCounter { get; set; } // Counter for generating unique IDs
     }
 }
