@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { IPortkeyProvider } from "@portkey/provider-types";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
@@ -24,6 +24,7 @@ import { removeNotification } from "@/lib/utils";
 import useExpenseTrackerSmartContract from "@/hooks/useExpenseTrackerSmartContract";
 import Card from "@/components/card";
 import ExpenseCard from "@/components/expense-card";
+import { calculateExpenses } from "@/hooks/useCalculation";
 
 interface IExpenseObject {
   description: string;
@@ -70,14 +71,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [formLoading, setFormLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  const totalAmount = useMemo(() => {
-    return expenseData.length > 0
-      ? expenseData.reduce((total, expense) => {
-          return total + parseFloat(expense.amount);
-        }, 0)
-      : 0;
-  }, [expenseData]);
+  const { totalAmount, today, lastMonth } = calculateExpenses(expenseData);
 
   // Step D - Configure Expense Form
   const form = useForm<z.infer<typeof formSchema>>();
@@ -97,23 +91,19 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
   };
 
   // step 2 - Initialize the smart contract
-  const initializeContract = async () => {
-
-  };
+  const initializeContract = async () => {};
 
   // step 3 - Add a New Expense using Smart Contract
-  const addNewExpense = async () => {
-
-  };
+  const addNewExpense = async () => {};
 
   // step 4 - Update the Expense
   const updateExpense = async () => {};
 
   // step 5 - Delete the Expense
-  const deleteExpense = async (data: IExpenseObject) => {};
+  const deleteExpense = async () => {};
 
   // step 6 - Handle Submit Form
-  const onSubmit = async (values: { description: string; amount: string }) => {};
+  const onSubmit = async () => {};
 
   // step 7 - Fetch All Expenses
   const getExpenseData = async () => {};
@@ -150,11 +140,15 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
       getExpenseData();
     }
   }, [currentWalletAddress]);
-  
+
   return (
     <div className="home-container">
       <div className="expense-tracker-collection-container">
-        <Card totalAmount={totalAmount} />
+        <div className="card-header-container">
+          <Card totalAmount={totalAmount} title="Total Expenditure" />
+          <Card totalAmount={today} title="Today’s Expenditure" />
+          <Card totalAmount={lastMonth} title="Last Month’s Expenditure" />
+        </div>
         <div className="expense-tracker-collection-head">
           <h2>Activity</h2>
           <div className="button-wrapper">

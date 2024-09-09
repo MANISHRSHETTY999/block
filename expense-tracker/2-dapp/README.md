@@ -20,7 +20,7 @@ git clone https://github.com/AElfProject/aelf-samples.git
 
 2. Navigate to the project directory:
 ```bash
-cd aelf-samples/expense-tracker
+cd aelf-samples/expense-tracker/2-dapp
 ```
 
 3. Install the necessary dependencies & libraries
@@ -32,5 +32,5 @@ Now that you're set up, you're ready to start the quest! Follow the steps as out
 
 ## Preview of Voting dApp
 
-![image](assets/Developer_TODO_Landing_Page.png)
+![image](assets/Developer_ExpenseTraker_Landing_Page.png)
 

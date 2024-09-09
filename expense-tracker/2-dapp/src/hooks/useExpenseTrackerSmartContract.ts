@@ -6,7 +6,9 @@ const useExpenseTrackerSmartContract = (provider: IPortkeyProvider | null) => {
     useState<ReturnType<IChain["getContract"]>>();
 
   //Step A - Function to fetch a smart contract based on deployed wallet address
-  const fetchContract = async () => {}
+  const fetchContract = async () => {
+  
+  }
 
   // Step B -  Effect hook to initialize and fetch the smart contract when the provider changes
   useEffect(() => {

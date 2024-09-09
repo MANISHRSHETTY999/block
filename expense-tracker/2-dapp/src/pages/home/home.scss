@@ -9,6 +9,13 @@
     max-width: 1200px;
     padding: 25px 15px 100px;
 
+    .card-header-container{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
     .expense-tracker-collection-head {
       display: flex;
       align-items: center;
