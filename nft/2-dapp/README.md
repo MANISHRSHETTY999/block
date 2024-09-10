@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Frontend of our [Voting dApp](https://learn.aelf.dev/docs/tutorial/stackup/frontend/).
+Frontend of our [NFT dApp](https://docs.aelf.dev/quick-start/developers/nft-dapp/#step-4---interact-with-deployed-multi-token-smart-contract).
 
 ## Pre-requisites
 

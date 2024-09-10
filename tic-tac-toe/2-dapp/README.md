@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Frontend of our [Tic-Tac-Toe dApp](https://learn.aelf.dev/docs/tutorial/stackup/frontend/).
+Frontend of our [Tic-Tac-Toe dApp](https://docs.aelf.dev/quick-start/developers/tic-tac-toe-dapp/#step-4---interact-with-your-deployed-smart-contract-through-dapp).
 
 ## Pre-requisites
 

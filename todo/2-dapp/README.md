@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Frontend of our [NFT dApp](https://docs.aelf.dev/quick-start/developers).
+Frontend of our [ToDo dApp](https://docs.aelf.dev/quick-start/developers/todo-dapp/#step-4---interact-with-your-deployed-smart-contract-through-dapp).
 
 ## Pre-requisites
 

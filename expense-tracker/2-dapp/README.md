@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Frontend of our [NFT dApp](https://docs.aelf.dev/quick-start/developers).
+Frontend of our [Expense Tracker dApp](https://docs.aelf.dev/quick-start/developers).
 
 ## Pre-requisites
 

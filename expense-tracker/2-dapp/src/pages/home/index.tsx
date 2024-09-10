@@ -134,7 +134,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
     smartContract && checkIsContractInitialized();
   }, [smartContract]);
 
-  // Use Effect to Fetch NFTs
+  // Use Effect to Fetch Expense Data
   useEffect(() => {
     if (currentWalletAddress) {
       getExpenseData();
