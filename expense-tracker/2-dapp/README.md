@@ -1,8 +1,8 @@
-# Build a NFT dApp (Frontend) 
+# Build a Expense Tracker dApp (Frontend) 
 
 ## Getting Started
 
-Frontend of our [NFT dApp](https://docs.aelf.dev/quick-start/developers/nft-dapp/#step-4---interact-with-deployed-multi-token-smart-contract).
+Frontend of our [Expense Tracker dApp](https://docs.aelf.dev/quick-start/developers).
 
 ## Pre-requisites
 
@@ -20,7 +20,7 @@ git clone https://github.com/AElfProject/aelf-samples.git
 
 2. Navigate to the project directory:
 ```bash
-cd aelf-samples/nft-dapp-tutorials
+cd aelf-samples/expense-tracker/2-dapp
 ```
 
 3. Install the necessary dependencies & libraries
@@ -30,7 +30,7 @@ npm install
 
 Now that you're set up, you're ready to start the quest! Follow the steps as outlined in the campaign. Each step contains detailed instructions to guide you through the process
 
-## Preview of NFT dApp
+## Preview of Expense Tracker dApp
 
-![image](assets/Developer_NFT_Landing_Page.png)
+![image](assets/Developer_ExpenseTraker_Landing_Page.png)
 

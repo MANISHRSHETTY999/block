@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-Frontend of our [Voting dApp](https://learn.aelf.dev/docs/tutorial/stackup/frontend/).
+Frontend of our [Voting dApp](https://docs.aelf.dev/quick-start/developers/dao-dapp/#step-4---interact-with-your-deployed-smart-contract).
 
 ## Pre-requisites
 

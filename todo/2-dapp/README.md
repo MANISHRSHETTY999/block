@@ -1,8 +1,8 @@
-# Build a Voting dApp (Frontend) 
+# Build a ToDo dApp (Frontend) 
 
 ## Getting Started
 
-Frontend of our [NFT dApp](https://docs.aelf.dev/quick-start/developers).
+Frontend of our [ToDo dApp](https://docs.aelf.dev/quick-start/developers/todo-dapp/#step-4---interact-with-your-deployed-smart-contract-through-dapp).
 
 ## Pre-requisites
 
@@ -30,7 +30,7 @@ npm install
 
 Now that you're set up, you're ready to start the quest! Follow the steps as outlined in the campaign. Each step contains detailed instructions to guide you through the process
 
-## Preview of Voting dApp
+## Preview of ToDo dApp
 
 ![image](assets/Developer_TODO_Landing_Page.png)
 
