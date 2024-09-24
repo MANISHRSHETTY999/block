@@ -3,10 +3,10 @@ using Google.Protobuf.WellKnownTypes;
 using Shouldly;
 using Xunit;
 
-namespace AElf.Contracts.StakingContract
+namespace AElf.Contracts.SinglePoolStaking
 {
     // This class is unit test class, and it inherit TestBase. Write your unit test code inside it
-    public class StakingContractTests : TestBase
+    public class SinglePoolStakingTests : TestBase
     {
         [Fact]
         public async Task Update_ShouldUpdateMessageAndFireEvent()
@@ -16,10 +16,10 @@ namespace AElf.Contracts.StakingContract
             var input = new StringValue { Value = inputValue };
 
             // Act
-            await StakingContractStub.Update.SendAsync(input);
+            await SinglePoolStakingStub.Update.SendAsync(input);
 
             // Assert
-            var updatedMessage = await StakingContractStub.Read.CallAsync(new Empty());
+            var updatedMessage = await SinglePoolStakingStub.Read.CallAsync(new Empty());
             updatedMessage.Value.ShouldBe(inputValue);
         }
     }

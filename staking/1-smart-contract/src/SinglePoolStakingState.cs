@@ -2,9 +2,10 @@ using AElf.Sdk.CSharp.State;
 using AElf.Types;
 using AElf.Contracts.MultiToken;
 
-namespace AElf.Contracts.StakingContract
+namespace AElf.Contracts.SinglePoolStaking
 {
-    public class StakingContractState : ContractState
+    // The state class is access the blockchain state
+    public class SinglePoolStakingState : ContractState 
     {
         public BoolState Initialized { get; set; }
         public SingletonState<Address> Owner { get; set; }

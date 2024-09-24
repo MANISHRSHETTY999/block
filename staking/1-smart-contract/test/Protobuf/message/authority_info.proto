@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "aelf/core.proto";
 
-option csharp_namespace = "AElf.Contracts.StakingContract";
+option csharp_namespace = "AElf.Contracts.SinglePoolStaking";
 
 message AuthorityInfo {
   aelf.Address contract_address = 1;

@@ -1,21 +1,21 @@
 using Google.Protobuf.WellKnownTypes;
 using AElf.Types;
-using System.Collections.Generic;
 using AElf.Contracts.MultiToken;
 
-
-namespace AElf.Contracts.StakingContract
+namespace AElf.Contracts.SinglePoolStaking
 {
-    public class StakingContract : StakingContractContainer.StakingContractBase
+    // Contract class must inherit the base class generated from the proto file
+    public class SinglePoolStaking : SinglePoolStakingContainer.SinglePoolStakingBase
     {
-        private const int RewardRate = 10; // 10% reward
+        // A method that modifies the contract state
+       private const int RewardRate = 10; // 10% reward
 
         public override Empty Initialize(InitializeInput input)
         {
             if (State.Initialized.Value)
                 return new Empty();
 
-            State.Initialized.Value = true;
+            State.Initialized.Value  = true;
             State.Owner.Value = Context.Sender;
             State.DepositCounter.Value = 0;
             State.TotalStakedAmount.Value = 0; // Initialize total staked amount
@@ -33,7 +33,7 @@ namespace AElf.Contracts.StakingContract
             var deposit = new Deposit
             {
                 DepositId = depositId,
-                Address = Context.Sender.ToString(),
+                To = Context.Sender,
                 TokenSymbol = input.TokenSymbol,
                 Amount = input.Amount,
                 LockTime = input.LockTime,
@@ -56,12 +56,13 @@ namespace AElf.Contracts.StakingContract
         {
             var deposit = State.Deposits[input.DepositId];
             Assert(deposit != null, "Deposit not found.");
-            Assert(deposit.Address == Context.Sender.ToString(), "Unauthorized.");
             Assert(Context.CurrentBlockTime.Seconds >= deposit.DepositTime + deposit.LockTime, "Lock period not over.");
+            
+            var depositorAddress = deposit.To;
 
             var reward = CalculateReward(deposit.Amount);
             
-            TransferFromContract(deposit.TokenSymbol, Context.Sender, deposit.Amount + reward);
+            TransferFromContract(deposit.TokenSymbol, depositorAddress, deposit.Amount + reward);
 
             State.TotalStakedAmount.Value -= deposit.Amount; // Update total staked amount
 
@@ -73,9 +74,10 @@ namespace AElf.Contracts.StakingContract
         {
             var deposit = State.Deposits[input.Value];
             Assert(deposit != null, "Deposit not found.");
-            Assert(deposit.Address == Context.Sender.ToString(), "Unauthorized.");
+           
+          var depositorAddress = deposit.To;
 
-            TransferFromContract(deposit.TokenSymbol, Context.Sender, deposit.Amount);
+            TransferFromContract(deposit.TokenSymbol, depositorAddress, deposit.Amount);
 
             State.TotalStakedAmount.Value -= deposit.Amount; // Update total staked amount
 
@@ -128,14 +130,12 @@ namespace AElf.Contracts.StakingContract
         {
             var virtualAddressHash = GetVirtualAddressHash(Context.Self, symbol);
 
-            State.TokenContract.TransferFrom.Send(
-                new TransferFromInput
+            State.TokenContract.Transfer.Send(
+                new TransferInput
                 {
+                    To = to,  
                     Symbol = symbol,
-                    Amount = amount,
-                    From = Context.Self,
-                    Memo = "Transfer from Staking Contract",
-                    To = to
+                    Amount = amount
                 });
         }
 
@@ -150,14 +150,15 @@ namespace AElf.Contracts.StakingContract
         }
 
         private void RemoveDeposit(string depositId)
-        {
-            var deposit = State.Deposits[depositId];
-            State.Deposits.Remove(depositId);
+{
+    var deposit = State.Deposits[depositId];
+    State.Deposits.Remove(depositId);
 
-            var userDeposits = State.UserDeposits[Address.FromBase58(deposit.Address)];
-            userDeposits.Values.Remove(depositId);
+    var userDeposits = State.UserDeposits[deposit.To]; // Use deposit.To directly
+    userDeposits.Values.Remove(depositId);
 
-            State.UserDeposits[Address.FromBase58(deposit.Address)] = userDeposits;
-        }
+    State.UserDeposits[deposit.To] = userDeposits; // Use deposit.To directly
+}
     }
+    
 }

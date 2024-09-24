@@ -1,10 +1,10 @@
-using AElf.Cryptography.ECDSA;
+﻿using AElf.Cryptography.ECDSA;
 using AElf.Testing.TestBase;
 
-namespace AElf.Contracts.StakingContract
+namespace AElf.Contracts.SinglePoolStaking
 {
     // The Module class load the context required for unit testing
-    public class Module : ContractTestModule<StakingContract>
+    public class Module : ContractTestModule<SinglePoolStaking>
     {
         
     }
@@ -13,18 +13,18 @@ namespace AElf.Contracts.StakingContract
     public class TestBase : ContractTestBase<Module>
     {
         // The Stub class for unit testing
-        internal readonly StakingContractContainer.StakingContractStub StakingContractStub;
+        internal readonly SinglePoolStakingContainer.SinglePoolStakingStub SinglePoolStakingStub;
         // A key pair that can be used to interact with the contract instance
         private ECKeyPair DefaultKeyPair => Accounts[0].KeyPair;
 
         public TestBase()
         {
-            StakingContractStub = GetStakingContractContractStub(DefaultKeyPair);
+            SinglePoolStakingStub = GetSinglePoolStakingContractStub(DefaultKeyPair);
         }
 
-        private StakingContractContainer.StakingContractStub GetStakingContractContractStub(ECKeyPair senderKeyPair)
+        private SinglePoolStakingContainer.SinglePoolStakingStub GetSinglePoolStakingContractStub(ECKeyPair senderKeyPair)
         {
-            return GetTester<StakingContractContainer.StakingContractStub>(ContractAddress, senderKeyPair);
+            return GetTester<SinglePoolStakingContainer.SinglePoolStakingStub>(ContractAddress, senderKeyPair);
         }
     }
     
