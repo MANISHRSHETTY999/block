@@ -98,25 +98,25 @@ const CreateTokenodal = ({
   // Step J - Get Token Contract
   const getTokenContract = async () => {};
 
-  // Step K - Issue Token on SideChain
-  const issueTokenOnSideChain = async () => {};
+  // Step K - Create Token on MainChain
+  const createTokenOnMainChain = async () => {};
 
   // Step L - Validate Mainchain Token Create's Transaction
   const validateToken = async () => {};
-
-  // Step N - Create Token on MainChain
-  const createTokenOnMainChain = async () => {};
-
-  // Step O - Create a Token on SideChain.
+  
+  // Step M - Create a Token on SideChain.
   const createTokenOnSideChain = async () => {};
 
-  // Step P - Transfer TOKEN to Staking Contract
+  // Step N - Issue Token on SideChain
+  const issueTokenOnSideChain = async () => {};
+
+  // Step O - Transfer TOKEN to Staking Contract
   const transferTokenToStakingContract = async () => {};
 
-  // Step Q - Initializing the staking contract
+  // Step P - Initializing the staking contract
   const initializedContract = async () => {};
 
-  // Step R - handle Submit of Create Token
+  // Step Q - handle Submit of Create Token
   const onSubmit = async () => {};
 
   return (
