@@ -8,7 +8,7 @@ import { removeNotification, stakingContractAddress } from "@/lib/utils";
 import useSmartContract from "@/hooks/useSmartContract";
 
 import { Button } from "@/components/ui/button";
-import useStakingContract from "@/hooks/useStakingConttract";
+import useStakingContract from "@/hooks/useStakingContract";
 import DepositDataCard from "@/components/deposit-data-card";
 import CreateTokenodal from "@/components/create-token-modal";
 

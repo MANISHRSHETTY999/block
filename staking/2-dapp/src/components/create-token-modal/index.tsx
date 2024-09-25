@@ -25,7 +25,7 @@ import useSmartContract from "@/hooks/useSmartContract";
 import { Input } from "../ui/input";
 import { InfoIcon } from "@/lib/icons";
 import { Button } from "../ui/button";
-import useStakingContract from "@/hooks/useStakingConttract";
+import useStakingContract from "@/hooks/useStakingContract";
 
 const formSchema = z.object({
   tokenName: z.string().min(1, "Description is required"),
