@@ -37,5 +37,5 @@ export const dateFormat = (date: string) => {
   return formattedDate;
 };
 
-// Step Y - Staking contract
-export const stakingContractAddress = "your_deployed_stakinng_contract"
+// Step Y - Staking contract address
+export const stakingContractAddress = "your_deployed_staking_contract_address"
