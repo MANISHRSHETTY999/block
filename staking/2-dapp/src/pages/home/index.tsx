@@ -190,7 +190,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
               </p>
             </div>
             <div className="input-container">
-              <label>Token Name</label>
+              <label>Token Amount</label>
               <button onClick={onHandleMax}>MAX</button>
               <input
                 placeholder="Enter Amount"
@@ -213,7 +213,7 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
             <label>Duration</label>
             <div className="duration-container">
               <div className="left-info">
-                <h4>1 Hour</h4>
+                <h4>5 Minutes</h4>
                 <p>1.1x multiplier</p>
               </div>
             </div>
@@ -244,9 +244,9 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
             </p>
             <p>Now, here are a few rules you'll need to keep in mind.</p>
             <ul>
-              <li>The lock duration is one hour.</li>
+            <li>The lock duration is 5 Minute.</li>
               <li>The highest multiplier you can get is 1.1x for now.</li>
-              <li>You can withdraw staked amount after 1 hour with reward.</li>
+              <li>You can withdraw Staked amount after 5 Minute with reward.</li>
               <li>
                 Any user can lock their $TOKENs and earn rewards based on the
                 multiplier.
