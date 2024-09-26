@@ -176,8 +176,8 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
         </div>
         <p className="app-desc">
           Securely stake your tokens on the aelf blockchain and earn rewards.
-          Easily manage your staking, track rewards, and withdraw anytime—all
-          with a user-friendly interface designed for seamless decentralized
+          Easily manage your staking, track rewards, and withdraw anytime, all
+          with a user-friendly interface designed for the seamless decentralized
           finance (DeFi) interaction.
         </p>
         <div className="staking-wrapper">
@@ -238,17 +238,17 @@ const HomePage = ({ provider, currentWalletAddress }: PageProps) => {
             </div>
             <h2>Here How it Works</h2>
             <p>
-              First, Decide how many $TOKENs you're willing to stake, then
-              choose the duration and multiplier for your $TOKEN. it's as simple
+              First, decide how many $TOKENs you're willing to stake, then
+              choose the duration for your staked $TOKEN. it's as simple
               as that!
             </p>
             <p>Now, here are a few rules you'll need to keep in mind.</p>
             <ul>
               <li>The lock duration is one hour.</li>
               <li>The highest multiplier you can get is 1.1x for now.</li>
-              <li>You can withdraw Tkaed amount after 1 hour with reward.</li>
+              <li>You can withdraw staked amount after 1 hour with reward.</li>
               <li>
-                Any user can lock their $TOKEN and earn rewards based on their
+                Any user can lock their $TOKENs and earn rewards based on the
                 multiplier.
               </li>
               <li>
