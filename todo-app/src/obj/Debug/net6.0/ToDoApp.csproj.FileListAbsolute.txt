@@ -1,0 +1,12 @@
+C:\Users\MANISH R SHETTY\todo-app\src\bin\Debug\net6.0\ToDoApp.deps.json
+C:\Users\MANISH R SHETTY\todo-app\src\bin\Debug\net6.0\ToDoApp.dll
+C:\Users\MANISH R SHETTY\todo-app\src\bin\Debug\net6.0\ToDoApp.pdb
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.csproj.AssemblyReference.cache
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.AssemblyInfoInputs.cache
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.AssemblyInfo.cs
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.csproj.CoreCompileInputs.cache
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.dll
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\refint\ToDoApp.dll
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ToDoApp.pdb
+C:\Users\MANISH R SHETTY\todo-app\src\obj\Debug\net6.0\ref\ToDoApp.dll
